@@ -1,11 +1,13 @@
 // @ts-nocheck
 
-const express = require('express')
-const mongoose = require('mongoose')
-const cors = require('cors');
-const dotenv = require('dotenv');
-const path = require('path')
-
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const dotenv = require("dotenv");
+const path = require("path");
+const swaggerUi = require("swagger-ui-express");
+const swaggerJsdoc = require("swagger-jsdoc");
+const swaggerOptions = require("./swagger");
 
 const userRoutes = require("./routes/userRoutes");
 const carRoutes = require("./routes/carRoutes");
@@ -15,24 +17,34 @@ const maintainRoutes = require("./routes/maintainRoutes");
 dotenv.config(); // load the env data
 
 const app = express();
+
+//swagger
+const swaggerDocs = swaggerJsdoc(swaggerOptions);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
 app.use(cors());
 
-app.use(express.json());  //parse JSON 
+app.use(express.json()); //parse JSON
 
-app.use('/api/cars', carRoutes)
-app.use('/api/rents', rentRoutes)
-app.use('/api/maintenance', maintainRoutes)
-app.use('/api/user', userRoutes)
-app.use('/images', express.static(path.join(__dirname, '../my-app/src/media')));
-app.use('/imagesStages', express.static(path.join(__dirname, '../my-app/src/media/stages')));
-app.use('/Images', express.static(path.join(__dirname, 'public', 'images')));
-app.use('/ImagesGallery', express.static(path.join(__dirname, '../../media')));
+app.use("/api/cars", carRoutes);
+app.use("/api/rents", rentRoutes);
+app.use("/api/maintenance", maintainRoutes);
+app.use("/api/user", userRoutes);
+app.use("/images", express.static(path.join(__dirname, "../my-app/src/media")));
+app.use(
+  "/imagesStages",
+  express.static(path.join(__dirname, "../my-app/src/media/stages"))
+);
+app.use("/Images", express.static(path.join(__dirname, "public", "images")));
+app.use("/ImagesGallery", express.static(path.join(__dirname, "../../media")));
 
-
-
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('MongoDB is connected and ready'))
-  .catch(err => console.error('MongoDB connection failed:', err));
+mongoose
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("MongoDB is connected and ready"))
+  .catch((err) => console.error("MongoDB connection failed:", err));
 
 app.use("/api/cars", carRoutes);
 app.use("/api/rents", rentRoutes);
