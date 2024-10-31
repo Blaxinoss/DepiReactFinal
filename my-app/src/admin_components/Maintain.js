@@ -218,7 +218,8 @@ export default function Maintain() {
                                                 value={inputFields.carId}
                                                 onChange={handleChange}
                                                 name='carId'
-                                                type='text'
+                                                type='search'
+                                                onFocus={(e) => e.target.select()}
                                                 list="Cars"
                                                 id="car-select"
                                                 placeholder="Choose a car"
@@ -226,7 +227,7 @@ export default function Maintain() {
                                             <datalist id="Cars">
                                                 {cars && cars.length > 0 ? (
                                                     cars.map((car) => (
-                                                        <option key={car._id} value={car._id}>{car.carName}</option>
+                                                        <option key={car._id} value={car.carName}>{car.carName}</option>
                                                     ))
                                                 ) : (
                                                     <option value="No cars available"></option>
@@ -280,14 +281,14 @@ export default function Maintain() {
                             <thead>
                                 <tr>
                                     {/* request sorting based on the clicks */}
-                                    <th onClick={() => requestSort('Id')}>Id  <i class="fas fa-sort"></i></th>
-                                    <th onClick={() => requestSort('workshopName')}>Workshop Name  <i class="fas fa-sort"></i></th>                                    <th>Date</th>
+                                    <th onClick={() => requestSort('Id')}>Id  <i className="fas fa-sort"></i></th>
+                                    <th onClick={() => requestSort('workshopName')}>Workshop Name  <i className="fas fa-sort"></i></th>                                    <th>Date</th>
                                     <th> Car Name</th>
-                                    <th onClick={() => requestSort('description')}>Description  <i class="fas fa-sort"></i></th>
-                                    <th onClick={() => requestSort('notes')}>Notes  <i class="fas fa-sort"></i></th>
-                                    <th onClick={() => requestSort('totalCost')}>Total Cost  <i class="fas fa-sort"></i></th>
-                                    <th onClick={() => requestSort('paid')}>Paid  <i class="fas fa-sort"></i></th>
-                                    <th onClick={() => requestSort('remaining')}>Remaining  <i class="fas fa-sort"></i></th>
+                                    <th onClick={() => requestSort('description')}>Description  <i className="fas fa-sort"></i></th>
+                                    <th onClick={() => requestSort('notes')}>Notes  <i className="fas fa-sort"></i></th>
+                                    <th onClick={() => requestSort('totalCost')}>Total Cost  <i className="fas fa-sort"></i></th>
+                                    <th onClick={() => requestSort('paid')}>Paid  <i className="fas fa-sort"></i></th>
+                                    <th onClick={() => requestSort('remaining')}>Remaining  <i className="fas fa-sort"></i></th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>

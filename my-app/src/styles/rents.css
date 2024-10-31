@@ -234,10 +234,10 @@ input#searchInputRent {
 
 .RentOpener {
     position: fixed;
-    left: 98.8%;
+    left: 95.8%;
     background: #007bff;
     border-radius: 50%;
-    padding: 8px;
+    padding: 13px;
     z-index: 8;
     cursor: pointer;
     color: white;
@@ -468,7 +468,12 @@ input.DoneRentEdit.active {
 
 @media only screen and (max-width:1400px) {
 
+    .RentOpener {
+        position: fixed;
+        left: 98%;
+        padding: 13px;
 
+    }
 
     .MainSection {
         grid-template-columns: repeat(2, minmax(auto, 1fr));
@@ -605,6 +610,13 @@ input.DoneRentEdit.active {
         padding: 3px;
         font-size: 0.8rem;
     }
+
+    .RentOpener {
+        left: 98.8%;
+
+        padding: 10px;
+
+    }
 }
 
 @media screen and (max-width:500px) {
@@ -622,6 +634,22 @@ input.DoneRentEdit.active {
         width: fit-content;
         padding: 3px;
         font-size: 0.8rem;
+    }
+
+    .RentOpener {
+        position: fixed;
+        left: 94.8%;
+        background: #007bff;
+        border-radius: 50%;
+        padding: 13px;
+        z-index: 8;
+        cursor: pointer;
+        color: white;
+        /* font-size: 2em; */
+        top: 50%;
+        outline: 7px solid #2C323D;
+        /* outline: 9px double #59768fd6; */
+        transform: translate(-50%, -50%);
     }
 }
 
