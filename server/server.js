@@ -32,11 +32,7 @@ app.use('/swagger.json', (req, res) => { // Serve Swagger JSON
 
 
 
-app.use(cors({
-  origin: 'https://depi-react-final-83rt.vercel.app', // Allow your front-end origin
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],          // Allow HTTP methods
-  credentials: true                                   // Allow cookies (if necessary)
-})); const dotenv = require('dotenv');
+app.use(cors());
 
 
 app.use(express.json());  //parse JSON 
