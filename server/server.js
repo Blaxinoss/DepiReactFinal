@@ -3,7 +3,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors');
-const dotenv = require('dotenv');
+
 const path = require('path')
 const cloudinary = require('cloudinary').v2; // Import Cloudinary
 const swaggerJsDoc = require('swagger-jsdoc'); // Import swagger-jsdoc
@@ -32,7 +32,12 @@ app.use('/swagger.json', (req, res) => { // Serve Swagger JSON
 
 
 
-app.use(cors({ origin: '*' }));
+app.use(cors({
+  origin: 'https://depi-react-final-83rt.vercel.app', // Allow your front-end origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],          // Allow HTTP methods
+  credentials: true                                   // Allow cookies (if necessary)
+})); const dotenv = require('dotenv');
+
 
 app.use(express.json());  //parse JSON 
 
