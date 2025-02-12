@@ -50,7 +50,7 @@ app.use("/api/maintenance", maintainRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/orders", orderRoutes);
 
-
+console.log(process.env.MONGO_URI)
 const uri = process.env.MONGO_URI; // Use the environment variable
 
 mongoose.connect(uri)
