@@ -9,7 +9,7 @@ const cloudinary = require('cloudinary').v2; // Import Cloudinary
 const swaggerJsDoc = require('swagger-jsdoc'); // Import swagger-jsdoc
 const swaggerUi = require('swagger-ui-express'); // Import swagger-ui-express
 const swaggerOptions = require('./swagger'); // Import your Swagger options
-const dotevn = require('dotenv')
+const dotenv = require('dotenv')
 
 
 const userRoutes = require("./routes/userRoutes");
