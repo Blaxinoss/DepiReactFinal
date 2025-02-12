@@ -32,8 +32,7 @@ app.use('/swagger.json', (req, res) => { // Serve Swagger JSON
 
 
 
-app.use(cors());
-
+app.use(cors({ origin: '*' }));
 
 app.use(express.json());  //parse JSON 
 
